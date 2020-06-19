@@ -74,6 +74,10 @@ public class MobilePhone {
         return -1;
     }
 
+    private int queryContactPosition(Contact contact) {
+        return this.phoneContacts.indexOf(contact);
+    }
+
     private Contact getContactAtPosition(int position) {
         if (position >= 0 && position < phoneContacts.size()) {
             return phoneContacts.get(position);
@@ -87,20 +91,24 @@ public class MobilePhone {
         Contact prevContact = new Contact();
         boolean status = false;
 
-        if (contactPosition != -1) {
+        if (contactPosition != -1 && queryContactPosition(newContact.getName()) == -1 &&
+                queryContactNumber(newContact.getPhoneNumber()) == null) {
             prevContact = phoneContacts.set(contactPosition, newContact);
             status = true;
+        } else {
+            if (contactPosition == -1) {
+                System.out.println("Reason: No such contact with name: " + contactName + " was found!");
+            } else if (contactPosition >= 0) {
+                System.out.println("A contact with the name or phone number you're updating to already exists!");
+            } else {
+                System.out.println("Something went wrong! Sorry about that.");
+            }
         }
 
         if (status) {
             System.out.println(prevContact.getName() + " was updated successfully.");
         } else {
             System.out.println("Couldn't update " + contactName + "!");
-            if (contactPosition == -1) {
-                System.out.println("Reason: No such contact with name: " + contactName + " was found!");
-            } else {
-                System.out.println("Something went wrong! Sorry about that.");
-            }
         }
     }
 
