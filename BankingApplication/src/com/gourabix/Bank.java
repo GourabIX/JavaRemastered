@@ -5,31 +5,23 @@ import java.util.ArrayList;
 public class Bank {
 
     private String name;
-    private ArrayList<Branch> branchList = new ArrayList<Branch>();
+    private ArrayList<Branch> branchList;
 
     public Bank() {
-        this("Infinity Bank", new ArrayList<Branch>());
+        this("Infinity Bank");
     }
 
-    private Bank(String name, ArrayList<Branch> branchList) {
+    private Bank(String name) {
         this.name = name;
-        this.branchList = branchList;
+        this.branchList = new ArrayList<Branch>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<Branch> getBranchList() {
         return branchList;
-    }
-
-    public void setBranchList(ArrayList<Branch> branchList) {
-        this.branchList = branchList;
     }
 
     private boolean saveBranchToFile(Branch branch) {
@@ -48,7 +40,7 @@ public class Bank {
 
     public boolean addNewBranch(String branchName) {
         if (!branchExistsOrNot(branchName)) {
-            return saveBranchToFile(Branch.createNewBranch(branchName, new ArrayList<Customer>()));
+            return saveBranchToFile(new Branch(branchName));
         }
 
         return false;

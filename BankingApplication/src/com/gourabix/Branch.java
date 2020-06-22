@@ -5,31 +5,19 @@ import java.util.ArrayList;
 public class Branch {
 
     private String name;
-    private ArrayList<Customer> customerList = new ArrayList<Customer>();
+    private ArrayList<Customer> customerList;
 
-    public Branch() {
-        this("default_branch", new ArrayList<Customer>());
-    }
-
-    public Branch(String name, ArrayList<Customer> customerList) {
+    public Branch(String name) {
         this.name = name;
-        this.customerList = customerList;
+        this.customerList = new ArrayList<Customer>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<Customer> getCustomerList() {
         return customerList;
-    }
-
-    public void setCustomerList(ArrayList<Customer> customerList) {
-        this.customerList = customerList;
     }
 
     // Add new customer and related behaviors
@@ -48,7 +36,7 @@ public class Branch {
 
     public boolean addNewCustomer(String customerName) {
         if (!customerExistsOrNot(customerName)) {
-            return saveCustomerToFile(Customer.createNewCustomer(customerName, new ArrayList<Double>()));
+            return saveCustomerToFile(new Customer(customerName));
         }
 
         return false;
@@ -106,10 +94,6 @@ public class Branch {
         for (int i = 0; i < getCustomerList().size(); i++) {
             System.out.println((i + 1) + ". " + getCustomerList().get(i).getName());
         }
-    }
-
-    public static Branch createNewBranch(String branchName, ArrayList<Customer> customerList) {
-        return new Branch(branchName, customerList);
     }
 
     public Customer getCustomerInfo(int position) {

@@ -5,31 +5,19 @@ import java.util.ArrayList;
 public class Customer {
 
     private String name;
-    private ArrayList<Double> transactionList = new ArrayList<Double>();
+    private ArrayList<Double> transactionList;
 
-    public Customer() {
-        this("default_customer", new ArrayList<Double>());
-    }
-
-    public Customer(String name, ArrayList<Double> transactionList) {
+    public Customer(String name) {
         this.name = name;
-        this.transactionList = transactionList;
+        this.transactionList = new ArrayList<Double>();
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public ArrayList<Double> getTransactionList() {
         return transactionList;
-    }
-
-    public void setTransactionList(ArrayList<Double> transactionList) {
-        this.transactionList = transactionList;
     }
 
     @Override
@@ -38,10 +26,6 @@ public class Customer {
                 "name='" + name + '\'' +
                 ", transactionList=" + transactionList +
                 '}';
-    }
-
-    public static Customer createNewCustomer(String customerName, ArrayList<Double> transactionList) {
-        return new Customer(customerName, transactionList);
     }
 
     public void printCustomerInfo() {

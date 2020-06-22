@@ -139,7 +139,7 @@ public class Main {
 
                 case 8:
                     System.out.println("Enter customer name: ");
-                    String customerName = "";
+                    String customerName;
                     do {
                         customerName = scanner.nextLine();
                         if (!customerName.isEmpty() && !customerName.matches("[0-9]")) {
@@ -160,6 +160,7 @@ public class Main {
                 case 9:
                     System.out.println("Thank you for choosing Infinity Bank!");
                     exitApp = true;
+                    scanner.close();
                     break;
 
                 default:
