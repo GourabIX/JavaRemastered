@@ -63,11 +63,12 @@ package com.gourabix;
 public class Main {
 
     public static void main(String[] args) {
+        /*
         NodeListImpl nodeList = new NodeListImpl(null);
         nodeList.traverse(nodeList.getNodeListRoot());
 
-//        String stringData = "Kolkata Pune Bengaluru Darjeeling Dinhata Puri Gangtok Kolkata";
-         String stringData = "5 7 3 9 8 2 1 0 4 6";
+        String stringData = "Kolkata Pune Bengaluru Darjeeling Dinhata Puri Gangtok Kolkata";
+        String stringData = "5 7 3 9 8 2 1 0 4 6";
 
         String[] cities = stringData.split(" ");
         for (String city : cities) {
@@ -103,5 +104,42 @@ public class Main {
         System.out.println();
 
         System.out.println("Is the Linked List null? " + nodeList.isListEmpty());
+        */
+
+        BinarySearchTree tree = new BinarySearchTree(null);
+        tree.traverse(tree.getNodeListRoot());
+//         Create a string data array to avoid typing loads of addItem instructions:
+        String stringData = "5 7 3 9 8 2 1 0 4 6";
+//        String stringData = "Darwin Brisbane Perth Melbourne Canberra Adelaide Sydney Canberra";
+
+        String[] data = stringData.split(" ");
+        for (String s : data) {
+            tree.addNode(new Node(s));
+        }
+
+        tree.traverse(tree.getNodeListRoot());
+        tree.removeNode(new Node("3"));
+        tree.traverse(tree.getNodeListRoot());
+
+        tree.removeNode(new Node("5"));
+        tree.traverse(tree.getNodeListRoot());
+
+        tree.removeNode(new Node("0"));
+        tree.removeNode(new Node("4"));
+        tree.removeNode(new Node("2"));
+        tree.traverse(tree.getNodeListRoot());
+
+        tree.removeNode(new Node("9"));
+        tree.traverse(tree.getNodeListRoot());
+        tree.removeNode(new Node("8"));
+        tree.traverse(tree.getNodeListRoot());
+        tree.removeNode(new Node("6"));
+        tree.traverse(tree.getNodeListRoot());
+        tree.removeNode(tree.getNodeListRoot());
+        tree.traverse(tree.getNodeListRoot());
+        tree.removeNode(tree.getNodeListRoot());
+        tree.traverse(tree.getNodeListRoot());
+
+        System.out.println("Is the Binary Search Tree null? " + tree.isListEmpty());
     }
 }
