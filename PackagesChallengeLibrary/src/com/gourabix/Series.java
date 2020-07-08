@@ -39,6 +39,10 @@ public class Series {
         return sum;
     }
 
+    public static int nSumOptimised(int n) {
+        return n * (n + 1) / 2;
+    }
+
     public static int factorialRecursive(int n) {
         if (n == 0) {
             return 1;
@@ -78,6 +82,26 @@ public class Series {
 
         if (n > 1) {
             return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+        return -1;
+    }
+
+    public static int fibonacciLooped(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+
+        if (n > 1) {
+            int n1 = 0;
+            int n2 = 1;
+            int fibonacci = 0;
+            for (int i = 1; i < n; i++) {
+                fibonacci = n1 + n2;
+                n1 = n2;
+                n2 = fibonacci;
+            }
+            return fibonacci;
         }
 
         return -1;

@@ -49,6 +49,12 @@ public class Main {
         System.out.println();
 
         for (int i = 0; i <= 10; i++) {
+            System.out.println(Series.nSumOptimised(i));
+        }
+
+        System.out.println();
+
+        for (int i = 0; i <= 10; i++) {
             System.out.println(Series.factorialRecursive(i));
         }
 
@@ -62,6 +68,12 @@ public class Main {
 
         for (int i = 0; i <= 10; i++) {
             System.out.println(Series.fibonacci(i));
+        }
+
+        System.out.println();
+
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(Series.fibonacciLooped(i));
         }
     }
 }
