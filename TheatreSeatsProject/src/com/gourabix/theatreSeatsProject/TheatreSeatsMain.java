@@ -15,47 +15,64 @@ public class TheatreSeatsMain {
 			System.out.println("Please pay for seat A02!");
 		else
 			System.err.println("Failed to reserve seat: A02.");
+		
+		System.out.println();
 
 		if (theatre.cancelSeatReservation("A02"))
 			System.out.println("Amount for seat: A02 will be refunded!");
 		else
 			System.err.println("Failed to cancel reservation for seat: A02.");
+		
+		System.out.println();
 
 		if (theatre.reserveSeat("A02"))
 			System.out.println("Please pay for seat A02!");
 		else
 			System.err.println("Failed to reserve seat: A02.");
+		
+		System.out.println();
 
 		if (theatre.reserveSeat("I07"))
 			System.out.println("Please pay for seat I07!");
 		else
 			System.err.println("Failed to reserve seat: I07.");
+		
+		System.out.println();
 
 		if (theatre.reserveSeat("I07"))
 			System.out.println("Please pay for seat I07!");
 		else
 			System.err.println("Failed to reserve seat: I07.");
+		
+		System.out.println();
 
 		if (theatre.reserveSeat("J09"))
 			System.out.println("Please pay for seat J09!");
 		else
 			System.err.println("Failed to reserve seat: J09.");
+		
+		System.out.println();
 
 		if (theatre.reserveSeat("J09"))
 			System.out.println("Please pay for seat J09!");
 		else
 			System.err.println("Failed to reserve seat: J09.");
+		
+		System.out.println();
 
 		if (theatre.reserveSeat("K04"))
 			System.out.println("Please pay for seat K04!");
 		else
 			System.err.println("Failed to reserve seat: K04.");
+		
+		System.out.println();
 
 		if (theatre.cancelSeatReservation("K04"))
 			System.out.println("Amount for seat: K04 will be refunded!");
 		else
 			System.err.println("Failed to cancel reservation for seat: K04.");
-
+		
+		System.out.println();
 	}
 
 }

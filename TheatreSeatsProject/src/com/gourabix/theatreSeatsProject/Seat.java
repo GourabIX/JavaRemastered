@@ -28,6 +28,7 @@ public class Seat {
 	protected boolean makeSeatReservation() {
 		if (!this.isReserved) {
 			this.isReserved = true;
+			System.out.println("Seat: " + getSeatNumber() + " reserved successfully!");
 			return true;
 		} else {
 			System.err.println("Seat: " + getSeatNumber() + " is already reserved!");
@@ -38,6 +39,7 @@ public class Seat {
 	protected boolean cancelSeatReservation() {
 		if (this.isReserved) {
 			this.isReserved = false;
+			System.out.println("Reservation for seat: " + getSeatNumber() + " cancelled successfully!");
 			return true;
 		} else {
 			System.err.println("Seat: " + getSeatNumber() + " is not reserved!");
