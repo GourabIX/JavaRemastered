@@ -6,7 +6,7 @@ package com.gourabix.theatreSeatsProject;
  *
  */
 
-public class Seat {
+public class Seat implements Comparable<Seat> {
 
 	private final String seatNumber;
 
@@ -45,6 +45,11 @@ public class Seat {
 			System.err.println("Seat: " + getSeatNumber() + " is not reserved!");
 			return false;
 		}
+	}
+
+	@Override
+	public int compareTo(Seat seat) {
+		return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
 	}
 
 }

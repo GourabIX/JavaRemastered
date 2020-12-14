@@ -30,11 +30,16 @@ public class Theatre {
 	public String getTheatreName() {
 		return theatreName;
 	}
+	
+	public List<Seat> getTheatreSeats() {
+		return theatreSeats;
+	}
 
 	public boolean reserveSeat(String seatNumber) {
 		Seat requestedSeat = null;
 
 		for (Seat seat : theatreSeats) {
+			System.err.print(".");
 			if (seat.getSeatNumber().equalsIgnoreCase(seatNumber))
 				requestedSeat = seat;
 		}
@@ -44,6 +49,28 @@ public class Theatre {
 		else
 			System.err.println("Seat: " + seatNumber + " was not found in theatre: " + getTheatreName());
 
+		return false;
+	}
+
+	public boolean reserveSeatWithBinarySearch(String seatNumber) {
+		int low = 0;
+		int high = theatreSeats.size() - 1;
+
+		while (low <= high) {
+			System.out.print(".");
+			int mid = (low + high) / 2;
+			Seat midSeat = theatreSeats.get(mid);
+			int compareValue = midSeat.getSeatNumber().compareTo(seatNumber);
+
+			if (compareValue < 0)
+				low = mid + 1;
+			else if (compareValue > 0)
+				high = mid - 1;
+			else
+				return midSeat.makeSeatReservation();
+		}
+
+		System.err.println("Seat: " + seatNumber + " was not found in theatre: " + getTheatreName());
 		return false;
 	}
 
