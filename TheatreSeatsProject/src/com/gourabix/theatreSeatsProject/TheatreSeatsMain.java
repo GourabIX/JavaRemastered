@@ -124,12 +124,18 @@ public class TheatreSeatsMain {
 
 		// Collections copy
 		List<Seat> newList = new ArrayList<>(seatsCopied.size());
+		
 		// This will not work because newList has the potential to store that many
 		// elements but initially it contains none.
+		
 		// The Collections.copy() method will only work after all the required elements
 		// of newList (destinationList) have been properly initialized and then the copy
 		// is attempted.
+		
 		// Collections.copy(newList, seatsCopied);		- Fails with java.lang.IndexOutOfBoundsException
+		
+		// Use this instead to produce a separate copy of elements inside another list.
+		newList = new ArrayList<Seat>(seatsCopied);
 		printList(newList);
 	}
 
