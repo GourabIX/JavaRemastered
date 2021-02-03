@@ -8,6 +8,11 @@ public class LambdaExpressionsExampleMain {
 		};
 
 		drawable.draw();
+		
+		Sayable sayable = (name) -> {
+			System.out.println("Currently saying " + name);
+		};
+		sayable.say("Sush, I Love You.");
 	}
 
 }
