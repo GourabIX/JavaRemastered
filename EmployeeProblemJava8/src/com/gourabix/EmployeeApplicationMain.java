@@ -12,7 +12,7 @@ public class EmployeeApplicationMain {
 		List<Employee> listOfEmployees = new ArrayList<Employee>();
 		listOfEmployees.add(new Employee(-1, "Gourab Sarkar"));
 		listOfEmployees.add(new Employee(2, "Gourab Sarkar"));
-		listOfEmployees.add(new Employee(3, "Gourab Sarkar"));
+		listOfEmployees.add(new Employee(3, "Geurab Sarkar"));
 		listOfEmployees.add(new Employee(4, "Gaurab Sarkar"));
 		listOfEmployees.add(new Employee(5, "Gourab Sarkar"));
 
@@ -36,6 +36,17 @@ public class EmployeeApplicationMain {
 		// Print names of employees with name starting with "Gou"
 		listOfEmployees.stream().map(employee -> employee.getEmployeeName())
 				.filter(employeeName -> employeeName.startsWith("Gou")).forEach(System.out::println);
+
+		// Change cases of employee names
+		List<String> collectedEmployeeNames = listOfEmployees.stream().map(employee -> employee.getEmployeeName())
+				.collect(Collectors.toList());
+		collectedEmployeeNames.stream().map(String::toUpperCase).forEach(System.out::println);
+		collectedEmployeeNames.stream().filter(name -> name.startsWith("Gourab")).map(String::toLowerCase)
+				.forEach(System.out::println);
+		collectedEmployeeNames = collectedEmployeeNames.stream().filter(name -> name.startsWith("Gourab"))
+				.map(String::toLowerCase).collect(Collectors.toList());
+
+		System.out.println(collectedEmployeeNames);
 	}
 
 }
