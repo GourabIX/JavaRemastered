@@ -9,7 +9,7 @@ import java.util.function.Function;
 public class FunctionFunctionalInterfaceListMapConverter {
 
 	public static void main(String[] args) {
-		List<String> techCategories = Arrays.asList("Backend", "Frontend", "Cloud");
+		List<String> techCategories = Arrays.asList("Backend", "Frontend", "Cloud", "Sush");
 
 		Map<String, Integer> techCategoryMap = convertListToMap(techCategories,
 				FunctionFunctionalInterfaceListMapConverter::getStringLength);
